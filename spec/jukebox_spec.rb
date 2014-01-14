@@ -28,7 +28,7 @@ describe "CLI Jukebox" do
   context "with commands" do
     it "responds to 'help'" do
       output = capture_stdout {help}
-      output.should match(/help|play|exit|list/)
+      output.should match(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m)
     end
  
     it "responds to 'list'" do
@@ -58,7 +58,8 @@ describe "CLI Jukebox" do
  
   it "should start the script with the run method" do
     stub!(:gets).and_return("exit")
-    output = capture_stdout { run }
+    output = capture_stdout { run(songs) }
     output.should match(/Please enter a command:/)
   end
+
 end
