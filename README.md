@@ -26,11 +26,11 @@ There are a number of ways to accept user input. As an example, let's build a pr
 
 Your jukebox should respond to 4 commands: help, play, list and exit.
 
-1. The help command should output instructions for the user on how to use the jukebox. Try typing ruby -h for an example of what your output could look like.
+1. The help command should output instructions for the user on how to use the jukebox. This should call a method named `help`. Try typing ruby -h for an example of what your output could look like.
 
-2. The list command should output a list of songs that the user can play. There are a number of ways to do this. Be creative. 
+2. The list command should output a list of songs that the user can play. It should call a method named `list`. 
 
-3. The play command should accept a song. The user can select either the song number/index or the song name. Once the user has selected the song they want to play, the jukebox should output 'Playing The Phoenix - 1901' or whatever song name is.
+3. The play command should accept a song. It should call a `play` method. The user can select either the song number/index or the song name. Once the user has selected the song they want to play, the jukebox should output 'Playing Phoenix - 1901' or whatever the song name is.
 
 4. If the user types in exit, the jukebox should say goodbye and the program should shut down.
 
@@ -43,3 +43,6 @@ same. (Hint, maybe downcase and strip it)
 out, you can refer to them by position so the user can just
 type play 1 and then you find the first song. (Hint, check
 out a method called each_with_index)
+
+Bonus:
+  * Once you get the tests to pass, get creative! Make the Jukebox your own. You could, for example, actually make the songs play.
