@@ -1,11 +1,11 @@
 ---
-  tags: user input, cli, looping
+  tags: user input, cli, looping, gets
   languages: ruby
 ---
 
 # Build a Jukebox
 
-### Skills: user input, methods, cli, looping
+### Skills: user input, methods, cli, looping, gets
 
 ## Instructions
 
