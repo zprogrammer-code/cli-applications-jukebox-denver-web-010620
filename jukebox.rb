@@ -6,5 +6,5 @@ songs = [
   "(Far From) Home - Tiga",
   "The Cults - Abducted",
   "Phoenix - Consolation Prizes",
-  "Harry Chapman - Cats in the Cradle"
+  "Harry Chapin - Cats in the Cradle"
 ]
