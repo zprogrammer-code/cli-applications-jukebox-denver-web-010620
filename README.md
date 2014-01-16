@@ -13,16 +13,16 @@ You're going to write a jukebox that introduces itself to the user and then asks
 
 There are a number of ways to accept user input. As an example, let's build a program that asks a user for their name and says hello to that user using the gets command.
 
-  ```ruby
-  def say_hello(name)
-    "Hi #{name}!"
-  end
+```ruby
+def say_hello(name)
+  "Hi #{name}!"
+end
 
-  puts "Enter your name:"
-  users_name = gets.chomp
+puts "Enter your name:"
+users_name = gets.chomp
 
-  puts say_hello(users_name)
-  ```
+puts say_hello(users_name)
+```
 
 Your jukebox should respond to 4 commands: help, play, list and exit.
 
@@ -46,3 +46,7 @@ out a method called each_with_index)
 
 Bonus:
   * Once you get the tests to pass, get creative! Make the Jukebox your own. You could, for example, actually make the songs play.
+
+## Running Your Jukebox 
+
+Run your jukebox from the command line with `ruby jukebox.rb`.
