@@ -1,3 +1,7 @@
+#!/usr/bin/env ruby
+
+require_relative "../jukebox"
+
 songs = [
   "Phoenix - 1901",
   "Tokyo Police Club - Wait Up",
@@ -10,4 +14,4 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
-# Your code here
+run(songs)
