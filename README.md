@@ -49,10 +49,9 @@ Bonus:
 
 ## Running Your Jukebox 
 
-Packaged with this repository is a runner file called "jukebox.rb".
+Packaged with this repository is a runner file "bin/jukebox.rb".
 
-It is inside of a directory called "bin". Bin is short for "binary",
-which is another way of referrering to an executable file.
+The "bin" directory is short for "binary", which is another way of referrering to an executable file.
 
 Assuming you are in the root directory of the jukebox project, run your jukebox from the command line with `ruby bin/jukebox.rb`.
 
