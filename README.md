@@ -49,12 +49,20 @@ Bonus:
 
 ## Running Your Jukebox 
 
-Packaged with this repository is a runner file "bin/jukebox.rb".
+Packaged with this repository is a runner file "bin/jukebox".
 
 The "bin" directory is short for "binary", which is another way of referrering to an executable file.
 
-Assuming you are in the root directory of the jukebox project, run your jukebox from the command line with `ruby bin/jukebox.rb`.
+The executable "bin/jukebox" is a Ruby file, but the ".rb" extension has
+been left off. The ".rb" extension is not mandatory for Ruby files, it
+is just a nice thing to have for the purposes of identifying the type of
+the file. However, it is a convention to leave the file extension off of
+executable files, which comes from true binary files that contain pure
+machine code (1's and 0's) rather than human readable source code like
+Ruby.
 
-Alternatively, you can also just say `bin/jukebox.rb` since a line of
-code has been added to the top of the bin/jukebox.rb runner file that tells
+Assuming you are in the root directory of the jukebox project, run your jukebox from the command line with `ruby bin/jukebox`.
+
+Alternatively, you can also just say `bin/jukebox` since a line of
+code has been added to the top of the bin/jukebox runner file that tells
 your command line shell which program to run the file with.
