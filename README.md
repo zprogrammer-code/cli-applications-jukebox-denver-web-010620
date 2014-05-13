@@ -1,6 +1,7 @@
 ---
   tags: user input, cli, looping, gets
   languages: ruby
+resources: 3
 ---
 
 # Build a Jukebox
@@ -66,3 +67,8 @@ Assuming you are in the root directory of the jukebox project, run your jukebox 
 Alternatively, you can also just say `bin/jukebox` since a line of
 code has been added to the top of the bin/jukebox runner file that tells
 your command line shell which program to run the file with.
+
+## Resources
+* [Learn to Program](http://books.flatironschool.com/books/43) - [7.3 Looping](http://books.flatironschool.com/books/43), page 54
+* [Learn to Program](http://books.flatironschool.com/books/43) - [5.3 The gets Method](http://books.flatironschool.com/books/43), page 36
+* [Learn to Program](http://books.flatironschool.com/books/43) - [5.5 The chomp Method](http://books.flatironschool.com/books/43), page 37
