@@ -1,7 +1,7 @@
 ---
   tags: user input, cli, looping, gets
   languages: ruby
-resources: 3
+  resources: 3
 ---
 
 # Build a Jukebox
