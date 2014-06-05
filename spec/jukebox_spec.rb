@@ -57,7 +57,7 @@ describe "CLI Jukebox" do
   it "should start the script with the run method" do
     allow(self).to receive(:gets).and_return("exit")
     output = capture_stdout { run(songs) }
-    output.should match(/Please enter a command:/)
+    expect(output).to match(/Please enter a command:/)
   end
 
 end
