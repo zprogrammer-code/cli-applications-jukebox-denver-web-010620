@@ -28,36 +28,39 @@ describe "CLI Jukebox" do
   context "with commands" do
     it "responds to 'help'" do
       output = capture_stdout {help}
-      output.should match(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m)
+      expect(output).to match(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m)
     end
  
     it "responds to 'list'" do
       output = capture_stdout { list(songs) }
-      output.should match(/Phoenix - 1901/)
+      expect(output).to match(/Phoenix - 1901/)
     end
  
     # stub! is deprecated but the test doesnt work with
     # stub
     it "responds to 'play' and accepts a number as an argument" do
-      stub!(:gets).and_return("1")
+      allow($stdin).to receive(:gets).and_return("1")
+      # stub!(:gets).and_return("1")
       output = capture_stdout { play(songs) }
-      output.should match(/Phoenix - 1901/)
+      expect(output).to match(/Phoenix - 1901/)
     end
 
     it "responds to 'play' and accepts a full song name as an argument" do
-      stub!(:gets).and_return("Phoenix - 1901")
+      allow($stdin).to receive(:gets).and_return("Phoenix - 1901")
+      # stub!(:gets).and_return("Phoenix - 1901")
       output = capture_stdout { play(songs) }
-      output.should match(/Phoenix - 1901/)
+      expect(output).to match(/Phoenix - 1901/)
     end
 
     it "responds to 'exit'" do
-      output = capture_stdout { exit }
-      output.should match(/Goodbye/)
+      output = capture_stdout { exit_jukebox }
+      expect(output).to match(/Goodbye/)
     end
   end
  
   it "should start the script with the run method" do
-    stub!(:gets).and_return("exit")
+    allow($stdin).to receive(:gets).and_return("exit")
+    # stub!(:gets).and_return("exit")
     output = capture_stdout { run(songs) }
     output.should match(/Please enter a command:/)
   end
