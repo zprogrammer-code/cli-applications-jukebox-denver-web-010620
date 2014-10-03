@@ -25,6 +25,8 @@ users_name = gets.chomp
 puts say_hello(users_name)
 ```
 
+![Jukebox](https://camo.githubusercontent.com/fcdfb7f86db18e9a497747c8d6f4283a8a136f76/687474703a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f732f6f7764666a69356c6a71756264686e2f323031342d30312d3239253230617425323031312e3130253230414d2e706e67)
+
 Your jukebox should respond to 4 commands: help, play, list and exit.
 
 1. The help command should output instructions for the user on how to use the jukebox. This should call a method named `help`. Try typing ruby -h for an example of what your output could look like.
