@@ -154,8 +154,3 @@ Accomplish the following:
 1. Establish a `gets` value for the `play` method to utilize
 2. Execute the `play` method contained in the block 
 2. Check to see if the `play` method outputs content that matches the regular expression `/Phoenix - 1901/`
-
-
-
-
-
