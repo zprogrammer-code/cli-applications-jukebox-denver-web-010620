@@ -35,18 +35,27 @@ describe "CLI Jukebox" do
       output = capture_stdout { list(songs) }
       expect(output).to match(/Phoenix - 1901/)
     end
- 
-    it "responds to 'play' and accepts a number as an argument" do
-      allow(self).to receive(:gets).and_return("1")
-      output = capture_stdout { play(songs) }
-      expect(output).to match(/Phoenix - 1901/)
-    end
 
-    it "responds to 'play' and accepts a full song name as an argument" do
-      allow(self).to receive(:gets).and_return("Phoenix - 1901")
-      output = capture_stdout { play(songs) }
-      expect(output).to match(/Phoenix - 1901/)
+    context "responding to 'play'" do 
+      it "accepts a number as an argument" do
+        allow(self).to receive(:gets).and_return("1")
+        output = capture_stdout { play(songs) }
+        expect(output).to match(/Phoenix - 1901/)
+      end
+
+      it "accepts a full song name as an argument" do
+        allow(self).to receive(:gets).and_return("Phoenix - 1901")
+        output = capture_stdout { play(songs) }
+        expect(output).to match(/Phoenix - 1901/)
+      end
+
+      it 'checks for invalid number input' do 
+        allow(self).to receive(:gets).and_return("12323")
+        output = capture_stdout { play(songs) }
+        expect(output).to match(/Invalid input, please try again/)
+      end
     end
+ 
 
     it "responds to 'exit'" do
       output = capture_stdout { exit_jukebox }
