@@ -36,14 +36,14 @@ describe "CLI Jukebox" do
       expect(output).to match(/Phoenix - 1901/)
     end
 
-    context "responding to 'play'" do 
-      it "accepts a number as an argument" do
+    context "the 'play' method accepts 'songs' as an argument" do 
+      it "can use a number to find a song" do
         allow(self).to receive(:gets).and_return("1")
         output = capture_stdout { play(songs) }
         expect(output).to match(/Phoenix - 1901/)
       end
 
-      it "accepts a full song name as an argument" do
+      it "can use a full song name to find a song" do
         allow(self).to receive(:gets).and_return("Phoenix - 1901")
         output = capture_stdout { play(songs) }
         expect(output).to match(/Phoenix - 1901/)
