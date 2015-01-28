@@ -10,9 +10,11 @@
 
 ## Instructions
 
-You're going to write a jukebox that introduces itself to the user and then asks for input. 
+You're going to write a jukebox that introduces itself to the user and then asks for your user input on the command line. 
 
-There are a number of ways to accept user input. As an example, let's build a program that asks a user for their name and says hello to that user using the gets command.
+There are a number of ways to accept user input. Today, we'll be building a Jukebox that functions primarily by accepting user input via the command line. 
+
+To demonstrate the example of user input via the command line, let's make a small program inside our `jukebox.rb` file. Our program will ask a user for their name, collect the user input via the `gets` command, and then say hello to that user. Let's follow the code block below:
 
 ```ruby
 def say_hello(name)
@@ -25,9 +27,13 @@ users_name = gets.chomp
 puts say_hello(users_name)
 ```
 
+When we run `ruby jukebox.rb`, it's going to print out `Enter your name:`, then the Terminal prompt will return, and you'll type in your name. The user input is obtained by the `gets` method, then any trailing whitespace gets removed via the `chomp` method, and finally the result is stored in the `users_name` local variable (let's assume `users_name = "Avi Flombaum"`). Finally, the program will print out the output of the `say_hello` method, which is `"Hi, Avi Flombaum!"`.
+
+Now let's move on to the Jukebox.
+
 ![Jukebox](https://camo.githubusercontent.com/fcdfb7f86db18e9a497747c8d6f4283a8a136f76/687474703a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f732f6f7764666a69356c6a71756264686e2f323031342d30312d3239253230617425323031312e3130253230414d2e706e67)
 
-Your jukebox should respond to 4 commands: help, play, list and exit.
+Your jukebox should respond to 4 commands: `help`, `play`, `list`, and `exit`.
 
 1. The help command should output instructions for the user on how to use the jukebox. This should call a method named `help`. Try typing ruby -h for an example of what your output could look like.
 
@@ -39,20 +45,20 @@ Your jukebox should respond to 4 commands: help, play, list and exit.
 
 Think about the following things:
   * How to keep the program running until the exit command is
-executed (Hint: Loop maybe? Loop upon a condition)
+executed (Hint: Loop maybe? Loop upon a condition).
   * How to normalize the user's input so LIST and list are the
-same. (Hint, maybe downcase and strip it)
+same. (Hint, maybe `downcase` and `strip` it).
   * How to give the songs an "index" so that when you list them
 out, you can refer to them by position so the user can just
 type play 1 and then you find the first song. (Hint, check
-out a method called each_with_index)
+out a method called `each_with_index`).
 
 Bonus:
-  * Once you get the tests to pass, get creative! Make the Jukebox your own. You could, for example, actually make the songs play.
+  * Once you get the tests to pass, get creative! Make the Jukebox your own. For example, you could actually make the songs play.
 
 ## Running Your Jukebox 
 
-Packaged with this repository is a runner file "bin/jukebox".
+Packaged with this repository is a runner file `bin/jukebox`.
 
 The "bin" directory is short for "binary", which is another way of referrering to an executable file.
 
