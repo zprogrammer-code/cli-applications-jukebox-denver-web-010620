@@ -1,5 +1,6 @@
+require 'pry'
 require_relative 'spec_helper'
- 
+
 def capture_stdout(&block)
   original_stdout = $stdout
   $stdout = fake = StringIO.new
@@ -10,7 +11,7 @@ def capture_stdout(&block)
   end
   fake.string
 end
- 
+
 songs = [
   "Phoenix - 1901",
   "Tokyo Police Club - Wait Up",
@@ -22,51 +23,43 @@ songs = [
   "Harry Chapman - Cats in the Cradle",
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
- 
+
 describe "CLI Jukebox" do
- 
+
   context "with commands" do
     it "responds to 'help'" do
-      output = capture_stdout {help}
-      expect(output).to match(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m)
-    end
- 
-    it "responds to 'list'" do
-      output = capture_stdout { list(songs) }
-      expect(output).to match(/Phoenix - 1901/)
+      expect { help }.to output(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m).to_stdout
     end
 
-    context "the 'play' method accepts 'songs' as an argument" do 
+    it "responds to 'list'" do
+      expect { list(songs) }.to output(/Phoenix - 1901/).to_stdout
+    end
+
+    context "the 'play' method accepts 'songs' as an argument" do
       it "can use a number to find a song" do
         allow(self).to receive(:gets).and_return("1")
-        output = capture_stdout { play(songs) }
-        expect(output).to match(/Phoenix - 1901/)
+        expect { play(songs) }.to output(/Phoenix - 1901/).to_stdout
       end
 
       it "can use a full song name to find a song" do
         allow(self).to receive(:gets).and_return("Phoenix - 1901")
-        output = capture_stdout { play(songs) }
-        expect(output).to match(/Phoenix - 1901/)
+        expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout
       end
 
-      it 'checks for invalid number input' do 
+      it 'checks for invalid number input' do
         allow(self).to receive(:gets).and_return("12323")
-        output = capture_stdout { play(songs) }
-        expect(output).to match(/Invalid input, please try again/)
+        expect { play(songs) }.to output(/Invalid input, please try again/).to_stdout
       end
     end
- 
+
 
     it "responds to 'exit'" do
-      output = capture_stdout { exit_jukebox }
-      expect(output).to match(/Goodbye/)
+      expect { exit_jukebox }.to output(/Goodbye/).to_stdout
     end
   end
- 
+
   it "should start the script with the run method" do
     allow(self).to receive(:gets).and_return("exit")
-    output = capture_stdout { run(songs) }
-    expect(output).to match(/Please enter a command:/)
+    expect { run(songs) }.to output(/Please enter a command:/).to_stdout
   end
-
 end
