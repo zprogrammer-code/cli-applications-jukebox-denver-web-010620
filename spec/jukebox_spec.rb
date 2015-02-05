@@ -1,16 +1,4 @@
-require 'pry'
 require_relative 'spec_helper'
-
-def capture_stdout(&block)
-  original_stdout = $stdout
-  $stdout = fake = StringIO.new
-  begin
-    yield
-  ensure
-    $stdout = original_stdout
-  end
-  fake.string
-end
 
 songs = [
   "Phoenix - 1901",
