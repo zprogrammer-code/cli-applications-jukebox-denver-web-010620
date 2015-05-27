@@ -6,15 +6,21 @@
 
 # Build a Jukebox
 
-### Skills: user input, methods, cli, looping, gets
+## Objectives
 
-##What is a CLI?
+1. Introduce CLI, or Command Line Interface, programs.
+2. Running CLI applications.
+3. Use `gets` for user input.
+4. Introduce stubbing in tests.
+5. Integrate procedural ruby basics to create a simple CLI Jukebox. 
+
+## What is a CLI?
 
 A CLI, or command line interface, allows a user to interface, or interact with, a computer's operating system or a particular application. You've already become comfortable interacting with the command line to navigate files, connect with Github and test your programs. In a command line application, the user will respond to a prompt that your program will output to the terminal. The user's response, or input, will be recieved by the application and the application will then carry out the programmed response based on that input. 
 
 For example, I might have a command line application which, once run, will ask the user for their location and in return ouput the current weather for that location to the terminal.
 
-##Running Command Line Apps
+## Running Command Line Apps
 
 In order to run our program from the command line and allow our user to interact with our program as described above, we need to set up a few things.
 
@@ -29,7 +35,6 @@ This is often referred to as a "shebang line" and it tells the shell which inter
 Using the above setup, you can run your program by typing `ruby bin/< your file name >` into the command line. 
 
 Alternatively, you can execute your program by simply typing `bin/< your file name >` into the command line, since the shebang line at the top of your executable file is already telling the shell to use Ruby to interpret the rest of the file. 
-
 
 ## Instructions
 
@@ -67,17 +72,19 @@ Your jukebox should respond to 4 commands: `help`, `play`, `list`, and `exit`.
 4. If the user types in exit, the jukebox should say goodbye and the program should shut down.
 
 Think about the following things:
-  * How to keep the program running until the exit command is
+
+* How to keep the program running until the exit command is
 executed (Hint: Loop maybe? Loop upon a condition?)
-  * How to normalize the user's input so LIST and list are the
+* How to normalize the user's input so LIST and list are the
 same. (Hint, maybe `downcase` and `strip` it).
-  * How to give the songs an "index" so that when you list them
+* How to give the songs an "index" so that when you list them
 out, you can refer to them by position so the user can just
 type play 1 and then you find the first song. (Hint, check
 out a method called `each_with_index`).
 
-Bonus:
-  * Once you get the tests to pass, get creative! Make the Jukebox your own. For example, you could actually make the songs play.
+### Bonus:
+
+Once you get the tests to pass, get creative! Make the Jukebox your own. For example, you could make your script pop open the [youtube video](https://github.com/grosser/youtube_search) for the song. You could parse the [Spotify Popular Track JSON](http://charts.spotify.com/api/tracks/most_streamed/global/daily/latest) and populate your jukebox from that data.
 
 ## Running Your Jukebox 
 
@@ -99,7 +106,7 @@ jukebox from the command line with `ruby bin/jukebox` or simply
 
 You already know that your Jukebox command line application relies on a user's input to run. In order to test our application programmatically––in other words, test it without having to run and interact with the program ourselves––we will rely on stubbing in our test suite. 
 
-**What is Stubbing?**
+## What is Stubbing?
 
 Stubbing refers to the fake implementation of a method. In the context of this test suite, we will stub the `gets` method call that our program relies on to obtain user input and feed it back into the application. In this way, we can simulate the CLI and effectively test our app. 
 
@@ -109,9 +116,11 @@ Without giving away *all* of the implementation of this method and spoiling your
 
 Remember, the `gets` method lets the user input a line and returns that line to your program. In our test suite, we need to fake this interaction and we'll use stubbing to do it. Check out the following line from our `jukebox_spec.rb`:  
 
-```it "can use a full song name to find a song" do
-        allow(self).to receive(:gets).and_return("Phoenix - 1901")
-        expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout
+```ruby
+it "can use a full song name to find a song" do
+  allow(self).to receive(:gets).and_return("Phoenix - 1901")
+  expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout
+end
 ```
  
       
@@ -127,7 +136,7 @@ Then, we test the output of the `play` method with
 
 This line uses one of Rspec's output matchers. 
 
-**Output Matchers**
+### Output Matchers 
 
 Rspec's output matchers provide a way to check that your program has emitted output to `$stdout`––a global variable that keeps track of the current standard output to your terminal. Don't worry too much about global variables right now, just know that they can be accessed from anywhere in your program. 
 
@@ -135,11 +144,10 @@ The `.to_stdout` method works by temporarily replacing the `$stdout` variable. W
 
 So, these lines of our test suite:
 
-``` 
+```ruby
 allow(self).to receive(:gets).and_return("Phoenix - 1901")
 expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout
 ```
-
 
 Accomplish the following:
 
