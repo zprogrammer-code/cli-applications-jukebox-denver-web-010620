@@ -23,19 +23,24 @@ describe "CLI Jukebox" do
       expect { list(songs) }.to output(/Phoenix - 1901/).to_stdout
     end
 
-    context "the 'play' method accepts 'songs' as an argument" do
-      it "can use a number to find a song" do
-        allow(self).to receive(:gets).and_return("1")
-        expect { play(songs) }.to output(/Phoenix - 1901/).to_stdout
-      end
+    describe '#play' do
+      it "can find a song when given a number from the user" do
+          allow(self).to receive(:gets).and_return("1")
+          expect { play(songs) }.to output(/Phoenix - 1901/).to_stdout
+        end
 
-      it "can use a full song name to find a song" do
+      it "can find a song when given a full song name" do
         allow(self).to receive(:gets).and_return("Phoenix - 1901")
         expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout
       end
 
-      it 'checks for invalid number input' do
+      it 'returns an error when given a number that does not correspond to a song' do
         allow(self).to receive(:gets).and_return("12323")
+        expect { play(songs) }.to output(/Invalid input, please try again/).to_stdout
+      end
+
+      it 'returns an error when given a name that does not correspond to an existing song' do
+        allow(self).to receive(:gets).and_return("Blah blah foo blah")
         expect { play(songs) }.to output(/Invalid input, please try again/).to_stdout
       end
     end
@@ -46,8 +51,11 @@ describe "CLI Jukebox" do
     end
   end
 
-  it "should start the script with the run method" do
-    allow(self).to receive(:gets).and_return("exit")
-    expect { run(songs) }.to output(/Please enter a command:/).to_stdout
+  describe '#run' do
+    it "starts the program script" do
+      allow(self).to receive(:gets).and_return("exit")
+      expect { run(songs) }.to output(/Please enter a command:/).to_stdout
+    end
   end
 end
+
