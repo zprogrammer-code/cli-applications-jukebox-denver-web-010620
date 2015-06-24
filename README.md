@@ -134,11 +134,11 @@ Now, when we call the `play` method on the following line, it has a `gets` value
 Then, we test the output of the `play` method with
  `expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout`
 
-This line uses one of Rspec's output matchers. 
+This line uses one of Learn's output matchers. 
 
 ### Output Matchers 
 
-Rspec's output matchers provide a way to check that your program has emitted output to `$stdout`––a global variable that keeps track of the current standard output to your terminal. Don't worry too much about global variables right now, just know that they can be accessed from anywhere in your program. 
+Learn's output matchers provide a way to check that your program has emitted output to `$stdout`––a global variable that keeps track of the current standard output to your terminal. Don't worry too much about global variables right now, just know that they can be accessed from anywhere in your program. 
 
 The `.to_stdout` method works by temporarily replacing the `$stdout` variable. When the `output` method is used with a string or a regex (as above), your test will pass if the block outputs a string `to_stdout` that matches the given string or regex.
 
