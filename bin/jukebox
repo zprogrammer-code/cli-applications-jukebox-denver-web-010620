@@ -1,27 +1,19 @@
 #!/usr/bin/env ruby
 
-require_relative "../jukebox"
+require_relative "../lib/jukebox"
 
-# songs = [
-#   "Phoenix - 1901",
-#   "Tokyo Police Club - Wait Up",
-#   "Sufjan Stevens - Too Much",
-#   "The Naked and the Famous - Young Blood",
-#   "(Far From) Home - Tiga",
-#   "The Cults - Abducted",
-#   "Phoenix - Consolation Prizes",
-#   "Harry Chapin - Cats in the Cradle",
-#   "Amos Lee - Keep It Loose, Keep It Tight"
-# ]
+songs = [
+  "Phoenix - 1901",
+  "Tokyo Police Club - Wait Up",
+  "Sufjan Stevens - Too Much",
+  "The Naked and the Famous - Young Blood",
+  "(Far From) Home - Tiga",
+  "The Cults - Abducted",
+  "Phoenix - Consolation Prizes",
+  "Harry Chapin - Cats in the Cradle",
+  "Amos Lee - Keep It Loose, Keep It Tight"
+]
 
-my_songs = {
-"1 - Go Go GO" => '/Users/sophiedebenedetto/Desktop/Emerald-Park/01.mp3',
-"2 - LiberTeens" => '/Users/sophiedebenedetto/Desktop/Emerald-Park/02.mp3',
-"3 - Hamburg" =>  '/Users/sophiedebenedetto/Desktop/Emerald-Park/03.mp3',
-"4 - Guiding Light" => '/Users/sophiedebenedetto/Desktop/Emerald-Park/04.mp3',
-"5 - Wolf" => '/Users/sophiedebenedetto/Desktop/Emerald-Park/05.mp3',
-"6 - Blue" => '/Users/sophiedebenedetto/Desktop/Emerald-Park/06.mp3',
-"7 - Graduation Failed" => '/Users/sophiedebenedetto/Desktop/Emerald-Park/07.mp3'
-}
 
-run(my_songs)
+
+run(songs)

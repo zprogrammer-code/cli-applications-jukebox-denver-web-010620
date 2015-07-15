@@ -1,14 +1,13 @@
-
-require 'pry'
-my_songs = {
-"Go Go GO" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/01.mp3',
-"LiberTeens" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/02.mp3',
-"Hamburg" =>  'Users/sophiedebenedetto/Desktop/Emerald-Park/03.mp3',
-"Guiding Light" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/04.mp3',
-"Wolf" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/05.mp3',
-"Blue" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/06.mp3',
-"Graduation Failed" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/07.mp3'
-}
+#Here is the song hash you will be working with. Each key is a song name and each value is the location of it's mp3 file.
+# my_songs = {
+# "Go Go GO" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/01.mp3',
+# "LiberTeens" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/02.mp3',
+# "Hamburg" =>  '< path to this directory >/jukebox-cli/audio/Emerald-Park/03.mp3',
+# "Guiding Light" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/04.mp3',
+# "Wolf" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/05.mp3',
+# "Blue" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/06.mp3',
+# "Graduation Failed" => '< path to this directory >/jukebox-cli/audio/Emerald-Park/07.mp3'
+# }
 
 def help
   help = <<-HELP
@@ -25,7 +24,6 @@ end
 
 
 def list(my_songs)
-  # binding.pry
   my_songs.keys.each_with_index do |song, i|
     puts "#{i + 1}. #{song}"
   end
