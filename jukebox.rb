@@ -1,14 +1,14 @@
-songs = [
-  "Phoenix - 1901",
-  "Tokyo Police Club - Wait Up",
-  "Sufjan Stevens - Too Much",
-  "The Naked and the Famous - Young Blood",
-  "(Far From) Home - Tiga",
-  "The Cults - Abducted",
-  "Phoenix - Consolation Prizes",
-  "Harry Chapin - Cats in the Cradle",
-  "Amos Lee - Keep It Loose, Keep It Tight"
-]
+
+require 'pry'
+my_songs = {
+"Go Go GO" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/01.mp3',
+"LiberTeens" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/02.mp3',
+"Hamburg" =>  'Users/sophiedebenedetto/Desktop/Emerald-Park/03.mp3',
+"Guiding Light" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/04.mp3',
+"Wolf" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/05.mp3',
+"Blue" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/06.mp3',
+"Graduation Failed" => 'Users/sophiedebenedetto/Desktop/Emerald-Park/07.mp3'
+}
 
 def help
   help = <<-HELP
@@ -22,21 +22,24 @@ HELP
   puts help
 end
 
-def list(songs)
-  songs.each_with_index do |song, i|
-    puts "#{i+1}. #{song}"
+
+
+def list(my_songs)
+  # binding.pry
+  my_songs.keys.each_with_index do |song, i|
+    puts "#{i + 1}. #{song}"
   end
 end
 
-def play(songs)
-  puts "Please enter a song name or number:"
+
+def play(my_songs)
+  puts "Please enter a song name"
   song_to_play = gets.chomp
-  if !songs[song_to_play.to_i]
+  if !my_songs.keys.include?(song_to_play)
     puts "Invalid input, please try again"
-  elsif song_to_play.to_i.to_s == song_to_play
-    puts "Playing #{songs[song_to_play.to_i - 1]}"
-  elsif songs.include?(song_to_play)
-    puts "Playing #{song_to_play}"
+  else
+    puts "Now playing #{song_to_play}"
+    system 'open ' << my_songs[song_to_play]
   end
 end
 
@@ -44,7 +47,7 @@ def exit_jukebox
   puts "Goodbye"
 end
 
-def run(songs)
+def run(my_songs)
   help
 
   input = ""
@@ -53,10 +56,10 @@ def run(songs)
     input = gets.downcase.strip
     case input
     when 'list'
-      list(songs)
+      list(my_songs)
     when 'play'
-      list(songs)
-      play(songs)
+      list(my_songs)
+      play(my_songs)
     when 'help'
       help
     when 'exit'
