@@ -174,4 +174,7 @@ This is the code that you'll be adding to your `play` method in order to play th
 
 Check out the code in `advanced_jukebox.rb`, we've left the method definitions for you and provided you the song hash, `my_songs`. 
 
-Follow the instructions in the commends of `advanced_jukebox.rb` to get your jukebox working. This is a bonus challenge, so there are not tests. Just get your jukebox playing music.  
+Follow the instructions in the comments of `advanced_jukebox.rb` to get your
+jukebox working. This is a bonus challenge, so there are not tests. Just get your jukebox playing music. 
+
+**Run your advanced jukebox program by typing `ruby bin/advanced_jukebox` in your terminal. This is the runner file for the `advanced_jukebox.rb` code.**
