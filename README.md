@@ -152,7 +152,7 @@ Accomplish the following:
 
 ## Advanced: Playing Music from Ruby
 
-In `lib/advanced_jukebox.rb` you'll be building on your jukebox so that it allows the use to play songs from the command line. You'll be playing the songs in `audio/Emerald-Park`, which contains some mp3 files. 
+In `lib/advanced_jukebox.rb` you'll be building on your jukebox so that it allows the user to play songs from the command line. You'll be playing the songs in `audio/Emerald-Park`, which contains some mp3 files. 
 
 ### Setting Up the Songs Hash
 
