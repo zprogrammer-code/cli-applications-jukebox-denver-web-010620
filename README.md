@@ -158,7 +158,7 @@ In `lib/advanced_jukebox.rb` you'll be building on your jukebox so that it allow
 
 In `lib/advanced_jukebox.rb` you'll see a `my_songs` hash which has keys of song names and values of the path to of each mp3 file (in `jukebox-cli/audio/Emerald-Park/<file name>.mp3`). 
 
-Change the value of each hash key so reflect the correct file path. For example, if this jukebox-cli directory is in `Users/<your name>/Desktop/Dev/`, the value of the first key should be `Users/<your name>/Desktop/Dev/jukebox-cli/audio/Emerald-Park/01.mp3`. If you're not sure what the path to the file is, cd into the directory of this lab in your terminal and type `pwd`. This stands for "print working directory" and will return the path to your current location. 
+Change the value of each hash key to reflect the correct file path. For example, if this jukebox-cli directory is in `Users/<your name>/Desktop/Dev/`, the value of the first key should be `Users/<your name>/Desktop/Dev/jukebox-cli/audio/Emerald-Park/01.mp3`. If you're not sure what the path to the file is, cd into the directory of this lab in your terminal and type `pwd`. This stands for "print working directory" and will return the path to your current location. 
 
 ### How can a Ruby program play music?
 
@@ -175,6 +175,6 @@ This is the code that you'll be adding to your `play` method in order to play th
 Check out the code in `advanced_jukebox.rb`, we've left the method definitions for you and provided you the song hash, `my_songs`. 
 
 Follow the instructions in the comments of `advanced_jukebox.rb` to get your
-jukebox working. This is a bonus challenge, so there are not tests. Just get your jukebox playing music. 
+jukebox working. This is a bonus challenge, so there are no tests. Just get your jukebox playing music. 
 
 **Run your advanced jukebox program by typing `ruby bin/advanced_jukebox` in your terminal. This is the runner file for the `advanced_jukebox.rb` code.**
