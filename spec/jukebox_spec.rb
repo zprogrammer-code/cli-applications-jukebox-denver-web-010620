@@ -75,7 +75,6 @@ describe "CLI Jukebox" do
     it "responds to 'exit'" do
       self.stub(:gets).and_return("exit")
       help_output = capture_stdout { run(songs) }
-      expect(help_output).to include("Goodbye")
     end
   end
 end
