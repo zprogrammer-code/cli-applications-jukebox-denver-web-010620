@@ -11,7 +11,7 @@
 
 ## What is a CLI?
 
-A CLI, or command line interface, allows a user to interface, or interact with, a computer's operating system or a particular application. You've already become comfortable interacting with the command line to navigate files, connect with Github and test your programs. In a command line application, the user will respond to a prompt that your program will output to the terminal. The user's response, or input, will be recieved by the application and the application will then carry out the programmed response based on that input. 
+A CLI, or command line interface, allows a user to interface, or interact with, a computer's operating system or a particular application. You've already become comfortable interacting with the command line to navigate files, connect with Github and test your programs. In a command line application, the user will respond to a prompt that your program will output to the terminal. The user's response, or input, will be received by the application and the application will then carry out the programmed response based on that input. 
 
 For example, I might have a command line application which, once run, will ask the user for their location and in return ouput the current weather for that location to the terminal.
 
