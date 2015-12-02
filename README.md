@@ -254,3 +254,5 @@ jukebox working. This is a bonus challenge, so there are no tests. Just get your
 **Hint:** You can open a file from the command line by typing `open <filename>` in your terminal. (If you are not using a Mac, the command you type will be a little [different](http://stackoverflow.com/questions/6657777/open-text-file-and-program-shortcut-in-windows-batch-file). If the file is an audio file, you computer will open the file and play it. We want our Ruby Jukebox program to execute that command for us. Ruby has method, `system`, that is called with an argument of a string that contains the command line command you want to execute. When Ruby invokes that method, the command you placed in the string will be executed. So, to play a song from a Ruby file, you can use `system "open #{filename}"`. 
 
 **Run your advanced jukebox program by typing `ruby bin/advanced_jukebox` in your terminal. This is the runner file for the `advanced_jukebox.rb` code.**
+
+<a href='https://learn.co/lessons/jukebox-cli' data-visibility='hidden'>View this lesson on Learn.co</a>
