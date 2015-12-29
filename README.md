@@ -50,7 +50,7 @@ users_name = gets.chomp
 puts say_hello(users_name)
 ```
 
-When we run `ruby jukebox.rb`, it's going to print out `Enter your name:`, then the Terminal prompt will return, and you'll type in your name. The user input is obtained by the `gets` method, then any trailing whitespace gets removed via the `chomp` method, and finally the result is stored in the `users_name` local variable (let's assume `users_name = "Avi Flombaum"`). Finally, the program will print out the output of the `say_hello` method, which is `"Hi, Avi Flombaum!"`.
+When we run `ruby lib/jukebox.rb`, it's going to print out `Enter your name:`, then the Terminal prompt will return, and you'll type in your name. The user input is obtained by the `gets` method, then any trailing whitespace gets removed via the `chomp` method, and finally the result is stored in the `users_name` local variable (let's assume `users_name = "Avi Flombaum"`). Finally, the program will print out the output of the `say_hello` method, which is `"Hi, Avi Flombaum!"`.
 
 
 Now, go head and delete or comment out the code we just wrote. That was just for practice (and fun). Let's move on to the Jukebox.
