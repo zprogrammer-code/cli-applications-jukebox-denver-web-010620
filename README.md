@@ -255,4 +255,4 @@ jukebox working. This is a bonus challenge, so there are no tests. Just get your
 
 **Run your advanced jukebox program by typing `ruby bin/advanced_jukebox` in your terminal. This is the runner file for the `advanced_jukebox.rb` code.**
 
-<a href='https://learn.co/lessons/jukebox-cli' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/jukebox-cli' title='Build a Jukebox'>Build a Jukebox</a> on Learn.co and start learning to code for free.</p>
