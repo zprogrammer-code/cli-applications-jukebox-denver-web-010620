@@ -104,7 +104,7 @@ I accept the following commands:
 
 ### The `list` Method
 
-This method takes in an argument of the `songs` array of `puts` out the following:
+This method takes in an argument of the `songs` array and `puts` out the following:
 
 ```bash
 1. Phoenix - 1901
@@ -256,3 +256,5 @@ jukebox working. This is a bonus challenge, so there are no tests. Just get your
 **Run your advanced jukebox program by typing `ruby bin/advanced_jukebox` in your terminal. This is the runner file for the `advanced_jukebox.rb` code.**
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/jukebox-cli' title='Build a Jukebox'>Build a Jukebox</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/jukebox-cli'>Jukebox CLI</a> on Learn.co and start learning to code for free.</p>
