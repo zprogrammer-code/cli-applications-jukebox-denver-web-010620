@@ -239,7 +239,7 @@ Change the value of each hash key to reflect the correct file path. For example,
 It is possible to play audio files via the command line by simply typing `open <path to audio file>`. This will launch your computer's audio player (iTunes, for example). In order to tell Ruby to execute a command line command, we use the following syntax: 
 
 ```ruby
-system 'open <path to audio file'
+system 'open <path to audio file>'
 ```
 
 This is the code that you'll be adding to your `play` method in order to play the audio files we've provided for you. 
@@ -255,4 +255,4 @@ jukebox working. This is a bonus challenge, so there are no tests. Just get your
 
 **Run your advanced jukebox program by typing `ruby bin/advanced_jukebox` in your terminal. This is the runner file for the `advanced_jukebox.rb` code.**
 
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/jukebox-cli' title='Build a Jukebox'>Build a Jukebox</a> on Learn.co and start learning to code for free.</p>
+<p class='util--hide'>View <a href='https://learn.co/lessons/jukebox-cli'>Jukebox CLI</a> on Learn.co and start learning to code for free.</p>
