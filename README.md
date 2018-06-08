@@ -104,7 +104,7 @@ I accept the following commands:
 
 ### The `list` Method
 
-This method takes in an argument of the `songs` array of `puts` out the following:
+This method takes in an argument of the `songs` array and `puts` out the following:
 
 ```bash
 1. Phoenix - 1901
