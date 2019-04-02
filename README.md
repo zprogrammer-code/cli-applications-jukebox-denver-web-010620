@@ -2,9 +2,10 @@
 
 ## Learning Goals
 
-- Introduce stubbing in tests
-- Integrate procedural Ruby basics to create a simple CLI Jukebox
-- Advanced: play music from a Ruby program
+- Implement multiple methods that work together
+- Handle user input with conditional logic
+- Read and use information in an array
+- Create an application that persists until the user decides to exit
 
 ## Introduction
 
