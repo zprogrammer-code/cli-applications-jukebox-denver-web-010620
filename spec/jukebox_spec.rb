@@ -17,78 +17,108 @@ describe "CLI Jukebox" do
   context "methods" do
     describe "#help" do
       it "lists out the possible commands" do
-        expect { help }.to output(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m).to_stdout
+        expect( $stdout ).to receive(:puts).with(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m)
+        help
       end
     end
 
     describe '#play' do
       it "can find a song when given a number from the user" do
         allow(self).to receive(:gets).and_return("1")
-        expect { play(songs) }.to output(/Phoenix - 1901/).to_stdout
-        expect { play(songs) }.to_not output(/Tokyo Police Club - Wait Up/).to_stdout
+        expect( $stdout ).to receive(:puts).with(/Please enter a song name or number:/)
+        expect( $stdout ).to receive(:puts).with(/Phoenix - 1901/)
+        expect( $stdout ).to_not receive(:puts).with(/Tokyo Police Club - Wait Up/)
+        play(songs)
       end
 
       it "can find a song when given a full song name" do
         allow(self).to receive(:gets).and_return("Phoenix - 1901")
-        expect{ play(songs) }.to output(/Phoenix - 1901/).to_stdout
+        expect( $stdout ).to receive(:puts).with(/Please enter a song name or number:/)
+        expect( $stdout ).to receive(:puts).with(/Phoenix - 1901/)
+        play(songs)
       end
 
       it 'returns an error when given a number that does not correspond to a song' do
         allow(self).to receive(:gets).and_return("12323")
-        expect { play(songs) }.to output(/Invalid input, please try again/).to_stdout
+        expect( $stdout ).to receive(:puts).with(/Please enter a song name or number:/)
+        expect( $stdout ).to receive(:puts).with(/Invalid input, please try again/)
+        play(songs)
       end
 
       it 'returns an error when given a name that does not correspond to an existing song' do
         allow(self).to receive(:gets).and_return("Blah blah foo blah")
-        expect { play(songs) }.to output(/Invalid input, please try again/).to_stdout
+        expect( $stdout ).to receive(:puts).with(/Please enter a song name or number:/)
+        expect( $stdout ).to receive(:puts).with(/Invalid input, please try again/)
+        play(songs)
       end
     end
 
     describe "#list" do
       it "lists out the available songs" do
-        expect { list(songs) }.to output(/1. Phoenix - 1901/).to_stdout
-        expect { list(songs) }.to output(/2. Tokyo Police Club - Wait Up/).to_stdout
-        expect { list(songs) }.to output(/3. Sufjan Stevens - Too Much/).to_stdout
-        expect { list(songs) }.to output(/4. The Naked and the Famous - Young Blood/).to_stdout
-        expect { list(songs) }.to output(/5. \(Far From\) Home - Tiga/).to_stdout
-        expect { list(songs) }.to output(/6. The Cults - Abducted/).to_stdout
-        expect { list(songs) }.to output(/7. Phoenix - Consolation Prizes/).to_stdout
-        expect { list(songs) }.to output(/8. Harry Chapman - Cats in the Cradle/).to_stdout
-        expect { list(songs) }.to output(/9. Amos Lee - Keep It Loose, Keep It Tight/).to_stdout
+        expect( $stdout ).to receive(:puts).with(/1. Phoenix - 1901/)
+        expect( $stdout ).to receive(:puts).with(/2. Tokyo Police Club - Wait Up/)
+        expect( $stdout ).to receive(:puts).with(/3. Sufjan Stevens - Too Much/)
+        expect( $stdout ).to receive(:puts).with(/4. The Naked and the Famous - Young Blood/)
+        expect( $stdout ).to receive(:puts).with(/5. \(Far From\) Home - Tiga/)
+        expect( $stdout ).to receive(:puts).with(/6. The Cults - Abducted/)
+        expect( $stdout ).to receive(:puts).with(/7. Phoenix - Consolation Prizes/)
+        expect( $stdout ).to receive(:puts).with(/8. Harry Chapman - Cats in the Cradle/)
+        expect( $stdout ).to receive(:puts).with(/9. Amos Lee - Keep It Loose, Keep It Tight/)
+        list(songs)
       end
     end
 
     describe "#exit_jukebox" do
       it "terminates the running of the program and outputs 'Goodbye'" do
-        expect { exit_jukebox }.to output(/Goodbye/).to_stdout
+        expect( $stdout ).to receive(:puts).with(/Goodbye/)
+        exit_jukebox
       end
     end
   end
 
   context "with commands" do
     it "responds to 'exit'" do
+      expect($stdout).to receive(:puts).with(/Please enter a command:/)
+      expect($stdout).to receive(:puts).with(/Goodbye/)
       allow(self).to receive(:gets).and_return("exit")
-      exit_output = capture_stdout { run(songs) }
-      expect(exit_output).to include("Please enter a command:").and include("Goodbye")
+      run(songs)
+      
+      # expect(exit_output).to include("Please enter a command:").and include("Goodbye")
     end
 
     it "responds to 'help'" do
       allow(self).to receive(:gets).and_return("help", "exit")
-      help_output = capture_stdout { run(songs) }
-      expect(help_output).to include("help").and include("list").and include("play").and include("exit").and include("Please enter a command:")
+      expect{ run(songs) }.to output(/Please enter a command:/).to_stdout
+      allow(self).to receive(:gets).and_return("help", "exit")
+      expect{ run(songs) }.to output(/I accept the following commands:/).to_stdout
+      allow(self).to receive(:gets).and_return("help", "exit")
+      expect{ run(songs) }.to output(/- help : displays this help message/).to_stdout
+      allow(self).to receive(:gets).and_return("help", "exit")
+      expect{ run(songs) }.to output(/- list : displays a list of songs you can play/).to_stdout
+      allow(self).to receive(:gets).and_return("help", "exit")
+      expect{ run(songs) }.to output(/- play : lets you choose a song to play/).to_stdout
+      allow(self).to receive(:gets).and_return("help", "exit")
+      expect{ run(songs) }.to output(/- exit : exits this program/).to_stdout
 
     end
 
     it "responds to 'list'" do
       allow(self).to receive(:gets).and_return("list", "exit")
-      list_output = capture_stdout { run(songs) }
-      expect(list_output).to include("Please enter a command:").and include("1. Phoenix - 1901").and include("9. Amos Lee - Keep It Loose, Keep It Tight")
+      expect{ run(songs) }.to output(/Please enter a command:/).to_stdout
+      allow(self).to receive(:gets).and_return("list", "exit")
+      expect{ run(songs) }.to output(/1. Phoenix - 1901/).to_stdout
+      allow(self).to receive(:gets).and_return("list", "exit")
+      expect{ run(songs) }.to output(/9. Amos Lee - Keep It Loose, Keep It Tight/).to_stdout
+      
     end
 
     it "responds to 'play'" do
       allow(self).to receive(:gets).and_return("play", "1", "exit")
-      list_output = capture_stdout { run(songs) }
-      expect(list_output).to include("Please enter a command:").and include("Please enter a song name or number:").and include("Playing Phoenix - 1901")
+      expect{ run(songs) }.to output(/Please enter a command:/).to_stdout
+      allow(self).to receive(:gets).and_return("play", "1", "exit")
+      expect{ run(songs) }.to output(/Please enter a song name or number:/).to_stdout
+      allow(self).to receive(:gets).and_return("play", "1", "exit")
+      expect{ run(songs) }.to output(/Playing Phoenix - 1901/).to_stdout
     end
 
   end
