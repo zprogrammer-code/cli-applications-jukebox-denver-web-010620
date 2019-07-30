@@ -166,7 +166,7 @@ purposes of outputting your list of songs.
 
 This method also takes in an argument of the `songs` array. It first `puts` out
 the prompt: `"Please enter a song name or number:"`. It then stores the user's
-response using `gets.chomp`.
+response using `gets.strip`.
 
 If the user's response is a valid song number or song name, the method should
 `puts` out: `"Playing <song name>"`. Otherwise, it should `puts` out:
@@ -185,8 +185,9 @@ First, this method should call on the `help` method to show the user the
 available commands.
 
 Second, it should `puts` out the prompt: `"Please enter a command:"`. Just like
-`play`, we will need to capture user input using `gets` and [`chomp`][chomp] (or
-[`strip`][strip], if you prefer).
+`play`, we will need to capture user input using `gets` and [`strip`][strip]
+(you can also use [`chomp`][chomp], but this will only remove carriage return
+characters, not extra whitespaces).
 
 Third, the `run` method will need to call one of the four methods we've written,
 based on the user input. For example, if the input is `"exit"`, we would want to
