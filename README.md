@@ -39,22 +39,32 @@ def say_hello(name)
 end
 
 puts "Enter your name:"
-users_name = gets.chomp
+users_name = gets.strip
 
 puts say_hello(users_name)
 ```
 
 When we run `ruby lib/jukebox.rb`, it's going to print out `Enter your name:`.
-Then, the terminal prompt will return to a newline, and you'll type in your
-name. The user input is obtained by the `gets` method, then any trailing
-whitespace gets removed via the `chomp` method, and finally the result is stored
-in the `users_name` local variable. If we imagine entering "Avi Flombaum" when
-the application prompts us, the program will print out the output of the
-`say_hello` method, which is `"Hi, Avi Flombaum!"`.
+Then, the terminal prompt will return to a new line, and you'll type in your
+name.
+
+The user input is obtained by the `gets` method. However, the input captured can
+include things we don't want such as whitespace before or after the input user
+name. The input also includes the 'carriage return' characters - after you have
+entered your name, you must press `Enter` / `Return` to continue, which adds
+`\n` to the end of the input.
+
+To remove the carriage return characters and any added whitespace, we can use
+the  `strip` method. `strip` will remove these things for us and leave just the
+text we need.
+
+The result is stored in the `users_name` local variable. If we imagine
+entering "Avi Flombaum" when the application prompts us, the program will print
+out the output of the `say_hello` method, which is `"Hi, Avi Flombaum!"`.
 
 ## Instructions
 
-Now, go head and delete or comment out the code we just wrote. That was just for
+Now, go ahead and delete or comment out the code we just wrote. That was just for
 practice (and fun). Let's move on to the Jukebox. When completed, using the
 Jukebox will look something like this:
 
@@ -72,14 +82,14 @@ and prompt them to choose one of these commands.
 - If the user types `exit`, the jukebox should say goodbye and the program
   should shut down.
 
-Let's take a closer look at the methods we'll need to build in order to get our
+Let's take a closer look at the methods we'll need to build to get our
 Jukebox up and running as described here.
 
 ### Separating Concerns Into Methods
 
 We'll be building a series of methods that enact the desired behavior of our
 Jukebox. As we saw above, we have four commands that do different things in our
-application. To make our code easier to understand and more flexible, its best
+application. To make our code easier to understand and more flexible, it's best
 that we separate these commands into individual methods. Each method would then
 be handling a particular _concern_ of our application: printing out helpful
 info, listing songs, "playing" a particular song, or stopping the program.
@@ -126,7 +136,7 @@ I accept the following commands:
 - exit : exits this program
 ```
 
-Remember that a `puts` will be needed for _each_ newline of output.
+Remember that a `puts` will be needed for _each_ new line of output.
 
 ### The `list` Method
 
@@ -192,30 +202,30 @@ what to do with it. If this is contained within a loop, as long as the loop
 conditions are met, the user will be able to enter commands over and over.
 
 Use `if` or `case` statements to determine how your program will respond to a
-user's input. For example, if their input is `"list"`, call the `list` method,
-if their input is `"play"`, call the `play` method, if their input is `"help"`,
+user's input. For example, if their input is `"list"`, call the `list` method
+if their input is `"play"`, call the `play` method if their input is `"help"`,
 call the `help` method and if their input is `"exit"`, call the `exit_jukebox`
 method _and_ break out of your loop to stop the program.
 
 Part of the difficulty in working with loops is that its easy to get stuck in an
 infinite loop. We recommend working out the code for _exiting_ the loop first.
-Some of the tests in this lab also rely on the ability to exit in order to
-finish testing, so it is possible for your tests to hang half way through.
+Some of the tests in this lab also rely on the ability to exit to finish
+testing, so it is possible for your tests to hang half way through.
 
 ## Testing Your Code
 
-You already know that your Jukebox command line application relies on a user's
+You already know that your Jukebox command-line application relies on a user's
 input to run. In order to test our application programmatically –– in other
 words, test it without having to run and interact with the program ourselves ––
 we use something called [stubbing][stub] that allows us to fake the output of
-built in methods such as `gets`.
+built-in methods such as `gets`.
 
 ## Running Your Jukebox
 
 Packaged with this repository is a file `bin/jukebox`. This is a Ruby file,
 but the `.rb` has been left off to indicate that this file is meant as an
 executable. It isn't quite the same thing as a file of compiled machine code
-(it still requires the Ruby interpreter to run), but is treated similarly as
+(it still requires the Ruby interpreter to run) but is treated similarly as
 the file a user would run when they want to run our program.
 
 Open up `bin/jukebox` and you will see the following:
