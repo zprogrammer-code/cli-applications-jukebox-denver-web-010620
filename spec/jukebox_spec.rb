@@ -17,7 +17,11 @@ describe "CLI Jukebox" do
   context "methods" do
     describe "#help" do
       it "lists out the possible commands" do
-        expect( $stdout ).to receive(:puts).with(/^(?=.*help)(?=.*list)(?=.*play)(?=.*exit).+/m)
+        expect( $stdout ).to receive(:puts).with(/I accept the following commands:/)
+        expect( $stdout ).to receive(:puts).with(/- help : displays this help message/)
+        expect( $stdout ).to receive(:puts).with(/- list : displays a list of songs you can play/)
+        expect( $stdout ).to receive(:puts).with(/- play : lets you choose a song to play/)
+        expect( $stdout ).to receive(:puts).with(/- exit : exits this program/)
         help
       end
     end
@@ -82,8 +86,6 @@ describe "CLI Jukebox" do
       expect($stdout).to receive(:puts).with(/Goodbye/)
       allow(self).to receive(:gets).and_return("exit")
       run(songs)
-      
-      # expect(exit_output).to include("Please enter a command:").and include("Goodbye")
     end
 
     it "responds to 'help'" do
