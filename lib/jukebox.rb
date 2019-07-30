@@ -1,6 +1,5 @@
 # Add your code here
 def run(songs)
-  help
   while true do
     puts "Please enter a command:"
     response = gets.chomp
