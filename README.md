@@ -185,15 +185,12 @@ This method is simple. It `puts` out: `"Goodbye"`.
 This method is a little trickier. It is where we pull together all of our other
 methods into a functioning program.
 
-First, this method should call on the `help` method to show the user the
-available commands.
-
-Second, it should `puts` out the prompt: `"Please enter a command:"`. Just like
+First, `run` should `puts` out the prompt: `"Please enter a command:"`. Just like
 `play`, we will need to capture user input using `gets` and [`strip`][strip]
 (you can also use [`chomp`][chomp], but this will only remove carriage return
 characters, not extra whitespaces).
 
-Third, the `run` method will need to call one of the four methods we've written,
+Second, the `run` method will need to call one of the four methods we've written,
 based on the user input. For example, if the input is `"exit"`, we would want to
 call the `exit_jukebox` method.
 
