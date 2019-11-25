@@ -17,7 +17,7 @@ itself to the user and then asks for the user's input on the command line.
 </p>
 
 To quickly review user input via the command line, let's make a small program.
-Inside the `jukebox.rb` file (within the `lib` subfolder), we see an array of
+Inside the `jukebox.rb` file (within the `lib` sub-folder), we see an array of
 song titles:
 
 ```ruby
