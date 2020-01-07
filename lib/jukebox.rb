@@ -11,9 +11,7 @@ def play(songs)
  if  songs != gets.strip
    puts "Invalid input, please try again"
  end
- #if songs[0] = gets.strip
- #return songs[0]
-end
+
 end
  if songs[0] = gets.strip
  return songs[0]
