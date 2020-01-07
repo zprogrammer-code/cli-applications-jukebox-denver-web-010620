@@ -8,9 +8,7 @@ puts "- exit : exits this program"
 end
 def play(songs)
   puts "Please enter a song name or number:"
- if  songs = gets.strip
-   return songs
-else
+ if  songs != gets.strip
    puts "Invalid input, please try again"
  end
  #if songs[0] = gets.strip
