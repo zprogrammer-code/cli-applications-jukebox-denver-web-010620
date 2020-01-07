@@ -15,7 +15,7 @@ end
    puts "Invalid input, please try again"
  end
  if songs[0] = gets.strip
- puts "Phoenix - 1901"
+ return songs[0]
 end
 end
 #list 
