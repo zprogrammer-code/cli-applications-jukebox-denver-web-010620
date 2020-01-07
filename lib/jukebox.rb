@@ -8,14 +8,11 @@ puts "- exit : exits this program"
 end
 def play(songs)
   puts "Please enter a song name or number:"
-   songs = gets.strip
-   if songs
-     puts songs
- else
-   puts "Invalid input, please try again"
- end
+  # songs = gets.strip
+  # if songs
+    # puts songs
+# else
+  # puts "Invalid input, please try again"
+# end
 
-end
- if songs[0] = gets.strip
- return songs[0]
 end
