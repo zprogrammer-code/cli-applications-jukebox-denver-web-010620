@@ -9,13 +9,14 @@ end
 def play(songs)
   puts "Please enter a song name or number:"
  if  songs = gets.strip
-   puts songs
-#end
-  #if songs != gets.strip
+   return songs
 else
    puts "Invalid input, please try again"
  end
+ #if songs[0] = gets.strip
+ #return songs[0]
+end
+end
  if songs[0] = gets.strip
  return songs[0]
-end
 end
