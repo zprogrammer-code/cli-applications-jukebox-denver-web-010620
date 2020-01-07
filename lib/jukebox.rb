@@ -19,5 +19,3 @@ else
  return songs[0]
 end
 end
-#list 
-#exit
